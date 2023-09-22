@@ -1,0 +1,41 @@
+.edit-task-btn {
+  color: white;
+  background-color: #222747;
+  padding: 10px;
+}
+
+.task-finish-btn {
+  color: white;
+  background-color: #9c5fe3;
+  padding: 10px;
+}
+.card {
+  border: 1px solid #24273d;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el cursor */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Agrega una sombra al pasar el cursor */
+}
+
+.fecha-creacion {
+  font-size: 0.9rem;
+  color: #9c5fe3;
+  font-weight: bold;
+}
+
+.edit-task-btn:hover {
+  background-color: #38417c;
+}
+
+.task-finish-btn:hover {
+  background-color: #ae6afc;
+}
+
+.bi-patch-check-fill,
+.bi-patch-check {
+  color: #9c5fe3;
+}
+
+

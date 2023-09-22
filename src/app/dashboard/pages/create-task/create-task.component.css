@@ -1,0 +1,22 @@
+.add-task-btn {
+  color: white;
+  background-color: #9c5fe3;
+}
+.add-task-btn:hover {
+  background-color: #ae6afc;
+}
+
+.close-btn {
+  color: white;
+  background-color: #222747;
+}
+.close-btn:hover {
+  background-color: #38417c;
+}
+
+.card {
+  border: 1px solid black;
+}
+label {
+  font-size: 1.1em;
+}

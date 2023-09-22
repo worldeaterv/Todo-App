@@ -1,0 +1,64 @@
+<section>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card animate__animated animate__fadeIn" style="width: 33rem">
+      <div class="card-body">
+        <h3 class="card-title text-center">Crea tu tarea</h3>
+
+        <form
+          [formGroup]="newTaskForm"
+          (ngSubmit)="createTask()"
+          autocomplete="off"
+        >
+          <div class="form-group mb-2">
+            <label for="titulo">Titulo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+              aria-describedby="titulo"
+              placeholder="Ingresa el titulo"
+              formControlName="titulo"
+            />
+            <small
+              id="errors"
+              class="form-text text-danger"
+              *ngIf="isValidField('titulo')"
+              >{{ getFieldError("titulo") }}</small
+            >
+          </div>
+          <div class="form-group mb-3">
+            <label for="descripcion">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descripcion"
+              placeholder="Ingresa la descripción"
+              formControlName="descripcion"
+            />
+            <small
+              id="errors"
+              class="form-text text-danger"
+              *ngIf="isValidField('descripcion')"
+            >
+              {{ getFieldError("descripcion") }}
+            </small>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn add-task-btn mb-2">
+              Añadir tarea
+            </button>
+
+            <button
+              routerLink="/dashboard/pending-tasks"
+              type="button"
+              class="btn close-btn"
+            >
+              Volver a mis tareas
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

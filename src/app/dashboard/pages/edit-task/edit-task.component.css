@@ -1,0 +1,33 @@
+.edit-task-btn {
+  color: white;
+  background-color: #9c5fe3;
+  padding: 8px;
+}
+.edit-task-btn:hover {
+  background-color: #ae6afc;
+}
+
+.delete-btn {
+  color: white;
+  background-color: #5d4eb6;
+  padding: 8px;
+}
+.delete-btn:hover {
+  background-color: #4d3da5;
+}
+
+.close-btn {
+  color: white;
+  background-color: #222747;
+  padding: 8px;
+}
+.close-btn:hover {
+  background-color: #38417c;
+}
+
+.card {
+  border: 1px solid black;
+}
+.form-label {
+  font-size: 1.1em;
+}

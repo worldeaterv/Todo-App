@@ -1,0 +1,80 @@
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
+<section *ngIf="task; else loading">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card animate__animated animate__fadeIn" style="width: 33rem">
+      <div class="card-body">
+        <h3 class="card-title text-center">Editar tarea</h3>
+
+        <form [formGroup]="editTaskForm" (ngSubmit)="editTask()">
+          <div class="form-group mb-2">
+            <label class="form-label" for="titulo">Titulo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+              aria-describedby="titulo"
+              placeholder="Ingresa el titulo"
+              formControlName="titulo"
+            />
+            <small
+              id="errors"
+              class="form-text text-danger"
+              *ngIf="isValidField('titulo')"
+              >{{ getFieldError("titulo") }}</small
+            >
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" for="descripcion">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descripcion"
+              placeholder="Ingresa la descripción"
+              formControlName="descripcion"
+            />
+            <small
+              id="errors"
+              class="form-text text-danger"
+              *ngIf="isValidField('descripcion')"
+              >{{ getFieldError("descripcion") }}</small
+            >
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="estado">Estado</label>
+            <select class="form-control" id="estado" formControlName="estado">
+              <option value="pendiente">Pendiente</option>
+              <option value="completada">Completada</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <div class="col-6 d-grid mb-1">
+              <button type="submit" class="btn edit-task-btn mb-2">
+                Realizar cambios
+              </button>
+            </div>
+            <div class="col-6 d-grid mb-1">
+              <a class="btn delete-btn mb-2" (click)="deleteTask()"
+                >Eliminar tarea</a
+              >
+            </div>
+            <hr />
+
+            <div class="d-grid">
+              <a
+                routerLink="/dashboard/pending-tasks"
+                type="button"
+                class="btn close-btn"
+              >
+                Volver a mis tareas
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

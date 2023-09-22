@@ -1,0 +1,58 @@
+<!-- LOADING TASKS -->
+<ng-template #spinnerLoading>
+  <app-spinner></app-spinner>
+</ng-template>
+
+<!-- NO PENDINGS TASKS -->
+<ng-template #noTasks>
+  <app-no-tasks-card></app-no-tasks-card>
+</ng-template>
+
+<!-- tareas -->
+<section *ngIf="!loading; else spinnerLoading">
+  <div class="row" *ngIf="tasks.length > 0; else noTasks">
+    <div class="col-sm-12 col-lg-6 mb-3" *ngFor="let task of tasks">
+      <div
+        class="card d-flex align-items-stretch animate__animated animate__fadeIn"
+        style="min-height: 15rem"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ task.titulo }}</h5>
+          <p class="fecha-creacion">
+            Fecha creación: {{ task.fecha_creacion | date }}
+          </p>
+
+          <p class="card-text">
+            {{ task.descripcion }}
+          </p>
+          <div class="row">
+            <div class="col-6 d-grid">
+              <button
+                [routerLink]="['/dashboard/edit-task', task._id]"
+                class="btn edit-task-btn"
+              >
+                Editar tarea <i class="bi bi-pencil-square"></i>
+              </button>
+            </div>
+
+            <div class="col-6 d-grid">
+              <a
+                class="btn task-finish-btn"
+                (click)="changeTaskState(task._id)"
+              >
+                Completar tarea <i class="bi bi-check-circle"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-center text-body-secondary">
+          <span style="font-weight: 600">
+            Tarea
+            {{ task.estado }}
+            <i class="bi bi-patch-check"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

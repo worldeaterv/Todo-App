@@ -1,0 +1,67 @@
+<!-- LOADING TASKS -->
+<ng-template #spinnerLoading>
+  <app-spinner></app-spinner>
+</ng-template>
+
+<!-- NO TASKS -->
+<ng-template #noTasks>
+  <app-no-tasks-completed-card></app-no-tasks-completed-card>
+</ng-template>
+
+<!-- tareas -->
+<section *ngIf="!loading; else spinnerLoading">
+  <div class="row" *ngIf="tasks.length > 0; else noTasks">
+    <div class="text-center mb-3">
+      <a
+        (click)="deleteAllTasksCompleted()"
+        class="btn delete-completed-tasks-btn"
+        >Borras tareas completadas</a
+      >
+    </div>
+    <div class="col-sm-12 col-lg-6 mb-3" *ngFor="let task of tasks">
+      <div
+        class="card d-flex align-items-stretch animate__animated animate__fadeIn"
+        style="min-height: 16rem"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ task.titulo }}</h5>
+          <p class="fecha-creacion">
+            Fecha creación: {{ task.fecha_creacion | date }}
+          </p>
+          <p class="fecha-termino">
+            Fecha completada: {{ task.fecha_completada | date }}
+          </p>
+
+          <p class="card-text mt-2">
+            {{ task.descripcion }}
+          </p>
+          <div class="row">
+            <div class="col-6 d-grid">
+              <button
+                [routerLink]="['/dashboard/edit-task', task._id]"
+                class="btn edit-task-btn"
+              >
+                Editar tarea <i class="bi bi-pencil-square"></i>
+              </button>
+            </div>
+            <div class="col-6 d-grid">
+              <button
+                (click)="changeTaskState(task._id)"
+                class="btn revert-state-btn"
+              >
+                Cambiar a pendiente <i class="bi bi-arrow-counterclockwise"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-center text-body-secondary">
+          <span style="font-weight: 600">
+            Tarea
+            {{ task.estado }}
+            <i class="bi bi-patch-check-fill"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

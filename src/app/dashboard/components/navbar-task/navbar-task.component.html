@@ -1,0 +1,27 @@
+<section class="my-3 text-center">
+  <h1>Todo App</h1>
+  <button
+    class="btn add-task-btn"
+    type="button"
+    routerLink="/dashboard/create-task"
+  >
+    <i class="bi bi-plus-circle p-3"> Crear una nueva tarea..</i>
+  </button>
+</section>
+
+<!-- nav -->
+<section class="mb-3">
+  <div class="d-flex justify-content-center align-items-center">
+    <ul class="nav">
+      <li class="nav-item" *ngFor="let item of reactiveMenu">
+        <a
+          class="nav-link"
+          [routerLink]="[item.route]"
+          routerLinkActive="active"
+        >
+          {{ item.title }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
