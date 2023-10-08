@@ -1,6 +1,6 @@
 # Lista de tareas - Frontend
 
-Esta es una aplicación frontend para gestionar tareas. Para que la aplicación funcione correctamente, es necesario tener una base de datos MongoDB configurada y el servidor backend ejecutándose. Sigue los pasos a continuación para configurar y ejecutar la aplicación.
+Esta es una aplicación para gestionar nuestras tareas que hacemos en nuestro día a día. Para que la aplicación funcione correctamente, es necesario tener una base de datos MongoDB configurada y el servidor backend ejecutándose. Sigue los pasos a continuación para configurar y ejecutar la aplicación.
 
 ## Configuración del Backend
 
